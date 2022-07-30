@@ -29,7 +29,7 @@ namespace Steam_Market_History
         {
             string raw = richTextBox1.Text;
             char[] charsToTrim = { '[', ']', '"', '{', '}', ':', };
-            if (raw.Length > 1000)
+            if (raw.Length > 64)
             {
                 string step1 = raw.Remove(0, 63);
                 string step2 = step1.Replace(" 01: +0", "");
