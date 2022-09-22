@@ -1,0 +1,11 @@
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.csproj.AssemblyReference.cache
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.csproj.SuggestedBindingRedirects.cache
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam_Market_History.Form1.resources
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam_Market_History.Properties.Resources.resources
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.csproj.GenerateResource.cache
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\bin\Debug\Steam Market History.exe.config
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\bin\Debug\Steam Market History.exe
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\bin\Debug\Steam Market History.pdb
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.exe
+C:\Users\lucas\Downloads\Steam-Market-History-master\Steam-Market-History-master\Steam Market History\obj\Debug\Steam Market History.pdb
