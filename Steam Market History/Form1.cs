@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.IO;
 
@@ -10,7 +10,7 @@ namespace Steam_Market_History
         {
             InitializeComponent();
         }
-
+        //Generate clean output
         private void button1_Click(object sender, EventArgs e)
         {
             string raw = richTextBox1.Text;
@@ -51,7 +51,7 @@ namespace Steam_Market_History
                 richTextBox2.Text = step13;
             }
         }
-
+        //Copy output text
         private void button2_Click(object sender, EventArgs e)
         {
             if (richTextBox2.TextLength > 0)
@@ -59,13 +59,13 @@ namespace Steam_Market_History
             else
                 return;
         }
-
+        //Clear raw and output
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
             richTextBox2.Text = "";
         }
-
+        //Load english
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Text = ("Jan");
@@ -81,7 +81,7 @@ namespace Steam_Market_History
             textBox11.Text = ("Nov");
             textBox12.Text = ("Dec");
         }
-
+        //Load swedish
         private void button5_Click(object sender, EventArgs e)
         {
             textBox1.Text = ("Jan");
@@ -97,7 +97,7 @@ namespace Steam_Market_History
             textBox11.Text = ("Nov");
             textBox12.Text = ("Dec");
         }
-
+        //Generate market history link
         private void button6_Click(object sender, EventArgs e)
         {
             string input = textBox13.Text;
@@ -148,7 +148,7 @@ namespace Steam_Market_History
                 textBox14.Text = "Choose Euro or Dollar";
             }
         }
-
+        //Copy price history link
         private void button8_Click(object sender, EventArgs e)
         {
             if (textBox14.TextLength > 0)
@@ -160,13 +160,13 @@ namespace Steam_Market_History
                 return;
             }
         }
-
+        //Clear marketplace links
         private void button7_Click(object sender, EventArgs e)
         {
             textBox13.Text = "";
             textBox14.Text = "";
         }
-
+        //Replace dates in raw
         private string Date(string input)
         {
             string step1 = input.Replace("Jan", textBox1.Text);
@@ -184,7 +184,7 @@ namespace Steam_Market_History
 
             return step12;
         }
-
+        //Remove "00: +0", "01: +0" etc
         private string removeStuff(string input)
         {
             string step1 = input.Replace("00: +0", "");
@@ -196,7 +196,7 @@ namespace Steam_Market_History
 
             return step2;
         }
-
+        //Save custom dates
         private void button9_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text + "," + textBox2.Text + "," + textBox3.Text + "," + textBox4.Text + "," + textBox5.Text + "," + textBox6.Text + "," + textBox7.Text + "," + textBox8.Text + "," + textBox9.Text + "," + textBox10.Text + "," + textBox11.Text + "," + textBox12.Text + Environment.NewLine;
@@ -205,7 +205,7 @@ namespace Steam_Market_History
                 writetext.WriteLine(text);
             }
         }
-
+        //Load custom dates
         private void button10_Click(object sender, EventArgs e)
         {
             try
@@ -234,7 +234,7 @@ namespace Steam_Market_History
             }
 
         }
-
+        //Clear "Paste Marketplace link" from textbox when you click on it
         private void textBox13_Click(object sender, EventArgs e)
         {
             if (textBox13.Text == "Paste Marketplace link")
