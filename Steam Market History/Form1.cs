@@ -244,18 +244,6 @@ namespace Steam_Market_History
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Enabled = !checkBox1.Checked;
-            checkBox1.Enabled = !checkBox2.Checked;
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Enabled = !checkBox1.Checked;
-            checkBox1.Enabled = !checkBox2.Checked;
-        }
-
         private void textBox13_Click(object sender, EventArgs e)
         {
             if (textBox13.Text == "Paste Marketplace link")
