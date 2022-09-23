@@ -1,0 +1,10 @@
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\bin\Release\Steam Market History.exe.config
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\bin\Release\Steam Market History.exe
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\bin\Release\Steam Market History.pdb
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam Market History.csproj.AssemblyReference.cache
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam_Market_History.Form1.resources
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam_Market_History.Properties.Resources.resources
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam Market History.csproj.GenerateResource.cache
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam Market History.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam Market History.exe
+C:\Users\lucas\source\repos\Steam Market History\Steam Market History\obj\Release\Steam Market History.pdb

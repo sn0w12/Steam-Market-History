@@ -13,152 +13,89 @@ namespace Steam_Market_History
         //Generate clean output
         private void button1_Click(object sender, EventArgs e)
         {
-            string raw = richTextBox1.Text;
+            string input = richTextBox1.Text;
             char[] charsToTrim = { '[', ']', '"', '{', '}', ':', };
-            if (raw.Length > 63)
-            {
-                string step1 = raw.Remove(0, 63);
-                string step2 = step1.Replace(" 01: +0", "");
-                string step3 = step2.Trim(charsToTrim);
-                string step4 = step3.Replace('"', ' ');
-                string step5 = step4.Replace(" ],[ ", "\n");
-                string step6 = step5.Replace(" , ", ",");
-                string step7 = step6.Replace(" ,", ",");
-                string step8 = step7.Replace(", ", ",");
-                string step9 = step8.Replace(",", ";");
-                string step10 = step9.Replace(".", ",");
-                string step11 = Date(step10);
-                string step12 = removeStuff(step11);
-                string step13 = step12.Replace(" ;", ";");
+            if (input.Length > 63)
+                input = input.Remove(0, 63);
+            input = input.Replace(" 01: +0", "");
+            input = input.Trim(charsToTrim);
+            input = replaceChar(input);
+            input = replaceDate(input);
+            input = removeStuff(input);
+            input = input.Replace(" ;", ";");
 
-                richTextBox2.Text = step13;
-            }
-            else
-            {
-                string step2 = raw.Replace(" 01: +0", "");
-                string step3 = step2.Trim(charsToTrim);
-                string step4 = step3.Replace('"', ' ');
-                string step5 = step4.Replace(" ],[ ", "\n");
-                string step6 = step5.Replace(" , ", ",");
-                string step7 = step6.Replace(" ,", ",");
-                string step8 = step7.Replace(", ", ",");
-                string step9 = step8.Replace(",", ";");
-                string step10 = step9.Replace(".", ",");
-                string step11 = Date(step10);
-                string step12 = removeStuff(step11);
-                string step13 = step12.Replace(" ;", ";");
-
-                richTextBox2.Text = step13;
-            }
+            richTextBox2.Text = input;
         }
         //Copy output text
         private void button2_Click(object sender, EventArgs e)
         {
             if (richTextBox2.TextLength > 0)
                 Clipboard.SetText(richTextBox2.Text);
-            else
-                return;
         }
-        //Clear raw and output
+        //Clear input and output
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
             richTextBox2.Text = "";
         }
+        //Load dates
+        private void dateLoad(string[] dates)
+        {
+            textBox1.Text = (dates[0]);
+            textBox2.Text = (dates[1]);
+            textBox3.Text = (dates[2]);
+            textBox4.Text = (dates[3]);
+            textBox5.Text = (dates[4]);
+            textBox6.Text = (dates[5]);
+            textBox7.Text = (dates[6]);
+            textBox8.Text = (dates[7]);
+            textBox9.Text = (dates[8]);
+            textBox10.Text = (dates[9]);
+            textBox11.Text = (dates[10]);
+            textBox12.Text = (dates[11]);
+        }
         //Load english
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox1.Text = ("Jan");
-            textBox2.Text = ("Feb");
-            textBox3.Text = ("Mar");
-            textBox4.Text = ("Apr");
-            textBox5.Text = ("May");
-            textBox6.Text = ("Jun");
-            textBox7.Text = ("Jul");
-            textBox8.Text = ("Aug");
-            textBox9.Text = ("Sep");
-            textBox10.Text = ("Oct");
-            textBox11.Text = ("Nov");
-            textBox12.Text = ("Dec");
+            string[] engDates = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+            dateLoad(engDates);
         }
         //Load swedish
         private void button5_Click(object sender, EventArgs e)
         {
-            textBox1.Text = ("Jan");
-            textBox2.Text = ("Feb");
-            textBox3.Text = ("Mars");
-            textBox4.Text = ("Apr");
-            textBox5.Text = ("Maj");
-            textBox6.Text = ("Juni");
-            textBox7.Text = ("Juli");
-            textBox8.Text = ("Aug");
-            textBox9.Text = ("Sep");
-            textBox10.Text = ("Okt");
-            textBox11.Text = ("Nov");
-            textBox12.Text = ("Dec");
+            string[] sweDates = { "Jan", "Feb", "Mars", "Apr", "Maj", "Juni", "Juli", "Aug", "Sep", "Okt", "Nov", "Dec" };
+            dateLoad(sweDates);
         }
         //Generate market history link
         private void button6_Click(object sender, EventArgs e)
         {
             string input = textBox13.Text;
             string clean = input.Replace("Paste Marketplace link", "");
-            if (comboBox1.Text == "Euro")
+            if (input.Length > 43)
             {
-                if (input.Length > 43)
-                {
-                    string game = clean.Remove(0, 43);
-                    int index = game.IndexOf("/");
-                    if (index >= 0)
-                        game = game.Substring(0, index);
+                string game = clean.Remove(0, 43);
+                int index = game.IndexOf("/");
+                if (index >= 0)
+                    game = game.Substring(0, index);
 
-                    string listing = "listings/" + game + "/";
+                string listing = "listings/" + game + "/";
 
-                    string step1 = clean.Replace(listing, "pricehistory/?country=US&currency=3&appid=730&market_hash_name=");
-                    string step2 = step1.Replace("730", game);
-                    textBox14.Text = step2;
-                }
-                else
-                {
-                    textBox14.Text = "Incorrect URL";
-                }
-            }
-            else if (comboBox1.Text == "Dollar")
-            {
-                if (input.Length > 43)
-                {
-                    string game = clean.Remove(0, 43);
-                    int index = game.IndexOf("/");
-                    if (index >= 0)
-                        game = game.Substring(0, index);
-
-                    string listing = "listings/" + game + "/";
-
-                    string step1 = clean.Replace(listing, "pricehistory/?country=US&currency=3&appid=730&market_hash_name=");
-                    string step2 = step1.Replace("730", game);
-                    string step3 = step2.Replace("currency=3", "currency=1");
-                    textBox14.Text = step3;
-                }
-                else
-                {
-                    textBox14.Text = "Incorrect URL";
-                }
+                clean = clean.Replace(listing, "pricehistory/?country=US&currency=3&appid=730&market_hash_name=");
+                clean = clean.Replace("730", game);
+                if (comboBox1.Text == "Dollar")
+                    clean = clean.Replace("currency=3", "currency=1");
+                else if (comboBox1.Text == "")
+                    clean = "Choose currency";
+                textBox14.Text = clean;
             }
             else
-            {
-                textBox14.Text = "Choose Euro or Dollar";
-            }
+                textBox14.Text = "Incorrect URL";
         }
         //Copy price history link
         private void button8_Click(object sender, EventArgs e)
         {
             if (textBox14.TextLength > 0)
-            {
                 Clipboard.SetText(textBox14.Text);
-            }
-            else
-            {
-                return;
-            }
         }
         //Clear marketplace links
         private void button7_Click(object sender, EventArgs e)
@@ -166,35 +103,47 @@ namespace Steam_Market_History
             textBox13.Text = "";
             textBox14.Text = "";
         }
-        //Replace dates in raw
-        private string Date(string input)
+        //Replace dates in input
+        private string replaceDate(string input)
         {
-            string step1 = input.Replace("Jan", textBox1.Text);
-            string step2 = step1.Replace("Feb", textBox2.Text);
-            string step3 = step2.Replace("Mar", textBox3.Text);
-            string step4 = step3.Replace("Apr", textBox4.Text);
-            string step5 = step4.Replace("May", textBox5.Text);
-            string step6 = step5.Replace("Jun", textBox6.Text);
-            string step7 = step6.Replace("Jul", textBox7.Text);
-            string step8 = step7.Replace("Aug", textBox8.Text);
-            string step9 = step8.Replace("Sep", textBox9.Text);
-            string step10 = step9.Replace("Oct", textBox10.Text);
-            string step11 = step10.Replace("Nov", textBox11.Text);
-            string step12 = step11.Replace("Dec", textBox12.Text);
+            input = input.Replace("Jan", textBox1.Text);
+            input = input.Replace("Feb", textBox2.Text);
+            input = input.Replace("Mar", textBox3.Text);
+            input = input.Replace("Apr", textBox4.Text);
+            input = input.Replace("May", textBox5.Text);
+            input = input.Replace("Jun", textBox6.Text);
+            input = input.Replace("Jul", textBox7.Text);
+            input = input.Replace("Aug", textBox8.Text);
+            input = input.Replace("Sep", textBox9.Text);
+            input = input.Replace("Oct", textBox10.Text);
+            input = input.Replace("Nov", textBox11.Text);
+            input = input.Replace("Dec", textBox12.Text);
 
-            return step12;
+            return input;
+        }
+        //Replace several characters that are bad
+        private string replaceChar(string input)
+        {
+            input = input.Replace('"', ' ');
+            input = input.Replace(" ],[ ", "\n");
+            input = input.Replace(" , ", ",");
+            input = input.Replace(" ,", ",");
+            input = input.Replace(", ", ",");
+            input = input.Replace(",", ";");
+            input = input.Replace(".", ",");
+
+            return input;
         }
         //Remove "00: +0", "01: +0" etc
         private string removeStuff(string input)
         {
-            string step1 = input.Replace("00: +0", "");
+            input = input.Replace("00: +0", "");
             for (int i = 99; i >= 0; i--)
-            {
-                step1 = step1.Replace(i + ": +0", "");
-            }
-            string step2 = step1.Replace(" 0;", ";");
+                input = input.Replace(i + ": +0", "");
 
-            return step2;
+            input = input.Replace(" 0;", ";");
+
+            return input;
         }
         //Save custom dates
         private void button9_Click(object sender, EventArgs e)
@@ -232,7 +181,6 @@ namespace Steam_Market_History
             {
                 richTextBox2.Text = "No saved dates";
             }
-
         }
         //Clear "Paste Marketplace link" from textbox when you click on it
         private void textBox13_Click(object sender, EventArgs e)
@@ -240,6 +188,10 @@ namespace Steam_Market_History
             if (textBox13.Text == "Paste Marketplace link")
                 textBox13.Text = "";
         }
-            
+        //Select default combobox value on load
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+        }
     }
 }
